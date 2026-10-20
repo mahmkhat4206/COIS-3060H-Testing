@@ -159,8 +159,17 @@ describe('Generate button — success message (Issue #2)', () => {
 
 describe('Generate button — multiple selections (Issue #3)', () => {
 
-  test('multiple items from the same tab all appear in the message', () => {
-    // Write your test here
+    test('selected items appear in the success message', () => {
+    check('starter-soup & starter-salad');
+    check('main-steak');
+    check('dessert-icecream');
+    click('generate-btn');
+    const msg = getMessage();
+    // BUG: this checks the exact full string, but the app displays items
+    // in a random order every time. So this test is flaky — it passes
+    // sometimes and fails other times with no code changes.
+    // Fix it so the test passes reliably regardless of item order.
+    expect(msg).toBe('✅ Your meal: Brocoli & caeser, T-bone, Chocolate' + 'starter--soup', 'starter-salad', 'main-steak', 'dessert-icecream')
 
   });
 
