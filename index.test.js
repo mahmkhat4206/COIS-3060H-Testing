@@ -139,7 +139,7 @@ describe('Generate button — success message (Issue #2)', () => {
     // in a random order every time. So this test is flaky — it passes
     // sometimes and fails other times with no code changes.
     // Fix it so the test passes reliably regardless of item order.
-    expect(msg).toBe('✅ Your meal: Garlic Bread, Pizza, Brownie');
+    expect(msg).toBe('✅ Your meal: Garlic Bread, Pizza, Brownie' + 'starter-bread', 'main-pizza', 'dessert-brownie');
   });
 
 });
